@@ -1,0 +1,56 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: .3rem;
+    padding: 1rem;
+    background-color: #fff;
+    
+}
+
+.card:hover {
+    box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.10);
+    cursor: pointer;
+}
+
+.img-container {
+    height: 220px;
+    margin: 1rem auto;
+}
+
+.img-container img {
+    height: 100%;
+    width: auto;
+}
+
+.info-container {
+    width: 100%;
+}
+
+.info-container p {
+    font-size: .9rem;
+}
+
+.genre-block {
+    margin: 1rem 0;
+    display: flex;
+}
+
+.title {
+    font-weight: bold;
+    margin-right: .3rem;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.purchase-btn {
+    padding: .5rem 1.3rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--main-color);
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+}

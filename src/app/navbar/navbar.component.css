@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--main-color);
+    padding: 1rem 1.5rem;
+}
+
+.navbar > * {
+    margin: 0 1rem;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.cart-link {
+    height: 25px;
+}
+
+.cart-link * {
+    height: 100%;
+    width: auto;
+}
