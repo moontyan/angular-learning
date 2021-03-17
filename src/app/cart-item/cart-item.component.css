@@ -49,3 +49,10 @@
     padding: 5px;
     cursor: pointer;
 }
+
+.delete-btn button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}

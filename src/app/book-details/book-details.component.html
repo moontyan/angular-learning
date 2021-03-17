@@ -1,0 +1,32 @@
+<div *ngIf="book$ | async" class="container">
+    <div class="item-container">
+        <div class="img-container">
+            <img [src]="(book$ | async)?.imgUrl || imageSrc">
+        </div>
+        <div class="info-container">
+            <div>
+                <h1>{{(book$ | async)?.title}}</h1>
+                <p class="about-headline">ABOUT A BOOK</p>
+                <div class="info-block">
+                    <div class="headline">
+                        <p>Author:</p>
+                        <p>Genre: </p>
+                    </div>
+                    <div>
+                        <p>{{(book$ | async)?.author}}</p>
+                        <p>{{(book$ | async)?.genre}}</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="checkout-block">
+                <h2>{{(book$ | async)?.price}} UAH</h2>
+                <button (click)="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <h2 class="synopsis-headline">Synopsis</h2>
+    <div class="synopsis">
+        <p>{{(book$ | async)?.description}}</p>
+    </div>
+</div>

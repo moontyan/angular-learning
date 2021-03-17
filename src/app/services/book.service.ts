@@ -7,8 +7,13 @@ import { books } from '../books';
 
 export class BookService {
 
+    constructor() {}
+
     getBooks() {
         return books;
     }
-    constructor() {}
+
+    getBookById(id: number) {
+        return books.find(book => book.id === id);
+    }
 }

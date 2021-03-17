@@ -1,15 +1,23 @@
-.card {
-    display: flex;
-    flex-direction: column;
+.card-wrapper {
     margin: .3rem;
     padding: 1rem;
     background-color: #fff;
-    
 }
 
-.card:hover {
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.card-wrapper:hover {
     box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.10);
     cursor: pointer;
+    transition: 200ms ease-in-out;
 }
 
 .img-container {

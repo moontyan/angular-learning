@@ -12,5 +12,9 @@
         <p class="price">{{item.price}} UAH</p>
         <p>{{item.quantity}}</p>
     </div>
-    <div class="delete-btn">&#x2716;</div> 
+    <div class="delete-btn">
+        <button (click)="deleteItem(item.id)">
+            &#x2716;
+        </button>
+    </div> 
 </div>

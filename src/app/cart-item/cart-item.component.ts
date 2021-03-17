@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CartItem } from '../cart';
+import { Store } from '@ngrx/store';
+import { deleteFromCart } from '../actions/cart.actions';
 
 @Component({
     selector: 'app-cart-item',
@@ -11,5 +13,9 @@ export class CartItemComponent {
     @Input() item: CartItem;
     imageSrc = 'assets/missing.jpg'
 
-    constructor() {}
+    constructor(private store: Store) {}
+
+    deleteItem(id: number) {
+        this.store.dispatch(deleteFromCart({ id }));
+    }
 }

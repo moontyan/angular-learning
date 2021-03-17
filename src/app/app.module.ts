@@ -9,6 +9,7 @@ import { BookListComponent } from './books-list/book-list.component';
 import { CardComponent } from './book-card/book-card.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -26,7 +27,8 @@ import { CartEffects } from './effects/cart.effects';
     BookListComponent,
     CardComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,20 @@
-<div class="card">
-    <div class="img-container">
-         <img [src]="book.imgUrl || imageSrc">
-    </div>
-    <div class="info-container">
-        <h3>{{book.title}}</h3>
-        <p>{{book.author}}</p>
-        <div class="genre-block">
-            <p class="title">Genre:</p>
-            <p>{{book.genre}}</p>
+<div class="card-wrapper">
+    <a [title]="book.title" [routerLink]="['/book', book.id]">
+        <div class="card">
+            <div class="img-container">
+                <img [src]="book.imgUrl || imageSrc">
+            </div>
+            <div class="info-container">
+                <h3>{{book.title}}</h3>
+                <p>{{book.author}}</p>
+                <div class="genre-block">
+                    <p class="title">Genre:</p>
+                    <p>{{book.genre}}</p>
+                </div>
+                <p>{{book.price}} UAH</p>
+            </div>
         </div>
-        <p>{{book.price}} UAH</p>
-    </div>
+    </a>
     <div class="button-container">
         <button class="purchase-btn" (click)="buyBook()">ADD TO CART</button>
     </div>
