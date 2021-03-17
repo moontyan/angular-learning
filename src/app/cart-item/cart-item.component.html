@@ -1,0 +1,16 @@
+<div class="cart-item">
+    <div class="item-header">
+        <div class="img-container">
+            <img [src]="item.imgUrl || imageSrc">
+        </div>
+        <div class="header-info">
+            <p class="header-title">{{item.title}}</p>
+            <p class="price">{{item.price}} UAH</p>
+        </div>
+    </div>
+    <div class="item-info">     
+        <p class="price">{{item.price}} UAH</p>
+        <p>{{item.quantity}}</p>
+    </div>
+    <div class="delete-btn">&#x2716;</div> 
+</div>

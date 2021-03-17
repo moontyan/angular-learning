@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from '../books';
+import { Store } from '@ngrx/store';
+import { addToCart } from '../actions/cart.actions';
 
 @Component({
     selector: 'app-book-card',
@@ -12,9 +14,17 @@ export class CardComponent implements OnInit {
     imageSrc = 'assets/missing.jpg'
 
     buyBook(): void{
-        window.alert('Book has been added to the cart!');
+        const item = {
+            id: this.book.id,
+            title: this.book.title,
+            imgUrl: this.book.imgUrl,
+            quantity: 1,
+            price: this.book.price
+        }
+        this.store.dispatch(addToCart({item}))
+        window.alert('Book has been added to the cart!')
     }
-    constructor() {
+    constructor(private store: Store) {
     }
 
     ngOnInit() {

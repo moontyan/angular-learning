@@ -7,7 +7,8 @@ export const BOOKS_KEY = 'books'
 export interface BooksState {
     booksArr: Book[]
 };
-export const initialState: BooksState = {
+
+const initialState: BooksState = {
     booksArr: []
 };
 

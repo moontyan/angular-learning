@@ -1,3 +1,12 @@
-<div>
-    <h1>CART</h1>
+<div class="container">
+    <div class="cart-list">
+        <h2>CART</h2>
+        <app-cart-item *ngFor="let item of cartItems$ | async" [item]="item"></app-cart-item>
+        <div class="placeholder" *ngIf="(cartItems$ | async)?.length === 0">
+            Add something to your shopping cart..
+        </div>
+        <div class="checkout-btn">
+            <button>Checkout</button>
+        </div>
+    </div>
 </div>
