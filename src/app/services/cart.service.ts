@@ -38,4 +38,9 @@ export class CartService {
     deleteFromCart(id: number) {
         this.itemsCart = this.itemsCart.filter(el => el.id !== id)
     }
+
+    calculateTotalPrice()  {
+        const priceArr = this.itemsCart.map(item => item.price * item.quantity);
+        return priceArr.reduce((acc, current) => acc + current, 0);
+    }
 }

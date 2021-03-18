@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { cartSelector } from '../reducers/cart.reducer';
-import { loadCartItems } from '../actions/cart.actions';
+import { cartSelector, cartTotalSelector } from '../reducers/cart.reducer';
+import { loadCartItems, calculateTotal } from '../actions/cart.actions';
 
 @Component({
     selector: 'app-cart',
@@ -11,10 +11,12 @@ import { loadCartItems } from '../actions/cart.actions';
 
 export class CartComponent implements OnInit {
     cartItems$ = this.store.select(cartSelector);
+    cartTotal$ = this.store.select(cartTotalSelector);
 
     constructor(private store: Store) {}
 
     ngOnInit() {
-        this.store.dispatch(loadCartItems())
+        this.store.dispatch(loadCartItems());
+        this.store.dispatch(calculateTotal());
     }
 }

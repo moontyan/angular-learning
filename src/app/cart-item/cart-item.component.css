@@ -42,6 +42,10 @@
     font-weight: 600;
 }
 
+.caption {
+    font-size: .9rem;
+}
+
 .delete-btn {
     position: absolute;
     top: 0;
@@ -51,6 +55,7 @@
 }
 
 .delete-btn button {
+    font-size: 1.1rem;
     background: none;
     border: none;
     cursor: pointer;

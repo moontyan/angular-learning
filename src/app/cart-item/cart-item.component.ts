@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CartItem } from '../cart';
 import { Store } from '@ngrx/store';
-import { deleteFromCart } from '../actions/cart.actions';
+import { deleteFromCart, calculateTotal } from '../actions/cart.actions';
 
 @Component({
     selector: 'app-cart-item',
@@ -17,5 +17,6 @@ export class CartItemComponent {
 
     deleteItem(id: number) {
         this.store.dispatch(deleteFromCart({ id }));
+        this.store.dispatch(calculateTotal());
     }
 }

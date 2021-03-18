@@ -5,6 +5,10 @@
         <div class="placeholder" *ngIf="(cartItems$ | async)?.length === 0">
             Add something to your shopping cart..
         </div>
+        <div class="cart-to-pay" *ngIf="(cartItems$ | async)?.length !== 0">
+            <p class="caption">Total to pay:</p>
+            <p>{{cartTotal$ | async}}</p>
+        </div>
         <div class="checkout-btn">
             <button>Checkout</button>
         </div>

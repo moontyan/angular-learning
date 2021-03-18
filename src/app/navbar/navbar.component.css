@@ -24,3 +24,8 @@ a {
     height: 100%;
     width: auto;
 }
+
+.items-quantity {
+    margin-left: .5rem;
+}
+
