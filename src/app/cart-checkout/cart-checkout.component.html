@@ -1,0 +1,79 @@
+<div class="form-container" *ngIf="!purchaseSuccess">
+    <form [formGroup]="checkoutForm" class="checkout-form" (ngSubmit)="onSubmit()">
+        <h2>Confirm your purchase</h2>
+        <div class="form-title">
+            <div>1</div>
+            <p>Personal info</p>
+        </div>
+        <input id="name" formControlName="name" placeholder="Name" autocomplete="off">
+        <input id="lastName" formControlName="lastName" placeholder="Last Name" autocomplete="off">
+        <input id="email" type="email" formControlName="email" placeholder="Email" autocomplete="off">
+        <input id="phone" type="tel" formControlName="phone" placeholder="+380 XX XXX XX XX" autocomplete="off">
+        <div class="form-title">
+            <div>2</div>
+            <p>Delivery</p>
+        </div>
+        <select formControlName="service">
+            <option value="" disabled selected>Select delivery service</option>
+            <option>Nova Poshta</option>
+            <option>UkrPoshta</option>
+            <option>Justin</option>
+            <option>Meest Express</option>
+        </select>
+        <input id="address" formControlName="address" placeholder="Address" autocomplete="off">
+        <button class="checkout-btn" type="submit">Purchase</button>
+    </form>
+</div>
+<div class="success-block" *ngIf="purchaseSuccess">
+    <div class="success-block-container">
+        <h2 class="success-headline">Thank you for purchase!</h2>
+        <div class="product-container">
+            <div class="product-item" *ngFor="let item of (cartCheckoutSuccess$ | async)?.product">
+                <div class="img-container">
+                    <img [src]="item.imgUrl">
+                </div>
+                <div class="item-info">
+                    <div>
+                        <p class="info-headline">Title</p>
+                        <p>{{item.title}}</p>
+                    </div>
+                    <div>
+                        <p class="info-headline">Price</p>
+                        <p>{{item.price}}</p>
+                    </div>
+                    <div>
+                        <p class="info-headline">Quantity</p>
+                        <p>{{item.quantity}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="customer-info">
+            <div class="customer-info-block">
+                <p>Name:</p>
+                <p>{{(cartCheckoutSuccess$ | async)?.info?.name }}</p>
+            </div>
+            <div class="customer-info-block">
+                <p>Last Name:</p>
+                <p>{{(cartCheckoutSuccess$ | async)?.info?.lastName }}</p>
+            </div>
+            <div class="customer-info-block">
+                <p>Email:</p>
+                <p>{{(cartCheckoutSuccess$ | async)?.info?.email }}</p>
+            </div>
+            <div class="customer-info-block">
+                <p>Service:</p>
+                <p>{{(cartCheckoutSuccess$ | async)?.info?.service }}</p>
+            </div>
+            <div class="customer-info-block">
+                <p>Address:</p>
+                <p>{{(cartCheckoutSuccess$ | async)?.info?.address }}</p>
+            </div>
+        </div>
+        <div class="total">
+            <h2>Total to pay:</h2>
+            <p>{{(cartCheckoutSuccess$ | async)?.total}} UAH</p>
+        </div>
+        <button class="return-btn" (click)="onReturn()">Go to shop</button>
+    </div>
+</div>

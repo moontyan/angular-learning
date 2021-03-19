@@ -4,3 +4,16 @@
     grid-template-rows: auto auto auto;
     margin-top: 2rem;
 }
+
+.headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.headline p {
+    margin-left: 1rem;
+    color: #95a0a6;
+    font-size: 1.25rem;
+}

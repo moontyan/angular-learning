@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { cart, CartItem } from '../cart';
+import { cart, CartItem, CustomerInfo, Purchase } from '../cart';
 
 @Injectable({
     providedIn: 'root'
@@ -42,5 +42,18 @@ export class CartService {
     calculateTotalPrice()  {
         const priceArr = this.itemsCart.map(item => item.price * item.quantity);
         return priceArr.reduce((acc, current) => acc + current, 0);
+    }
+
+    clearCart() {
+        this.itemsCart = []
+        return this.itemsCart;
+    }
+
+    checkoutPurchase(info: CustomerInfo, total: number): Purchase {
+        return {
+            info,
+            product: this.itemsCart,
+            total
+        }
     }
 }

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap, catchError } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
+import { map, switchMap, catchError, withLatestFrom, tap } from 'rxjs/operators';
 import { CartService } from '../services/cart.service';
-import { loadCartItems, getCartItems, addToCart, deleteFromCart, calculateTotal, showTotal, errorItem } from '../actions/cart.actions';
+import { cartTotalSelector, CartState } from '../reducers/cart.reducer';
+import { loadCartItems, getCartItems, addToCart, deleteFromCart, calculateTotal, showTotal, checkoutCart, savePurchse, errorItem, clearCart } from '../actions/cart.actions';
 import { of } from 'rxjs';
 
 @Injectable()
@@ -54,5 +56,26 @@ export class CartEffects {
         })
     ))
 
-    constructor(private actions$: Actions, private CartService: CartService) {}
+    checkoutPurchase$ = createEffect(() => this.actions$.pipe(
+        ofType(checkoutCart),
+        withLatestFrom(this.store.select(cartTotalSelector)),
+        map(([action, total]) => {
+            const purchase = this.CartService.checkoutPurchase(action.info, total);
+            return savePurchse({ purchase })
+        })
+    ))
+
+    clearCart$ = createEffect(() => this.actions$.pipe(
+        ofType(clearCart),
+        map(() => {
+            const items = this.CartService.clearCart();
+            return getCartItems({ items })
+        }),
+        catchError(error => {
+            console.log(error);
+            return of(errorItem({ message: error }))
+        })
+    ))
+
+    constructor(private actions$: Actions, private CartService: CartService, private store: Store<CartState>) {}
 }

@@ -7,10 +7,10 @@
         </div>
         <div class="cart-to-pay" *ngIf="(cartItems$ | async)?.length !== 0">
             <p class="caption">Total to pay:</p>
-            <p>{{cartTotal$ | async}}</p>
+            <p>{{cartTotal$ | async}} UAH</p>
         </div>
         <div class="checkout-btn">
-            <button>Checkout</button>
+            <button [disabled]="(cartItems$ | async)?.length === 0" (click)="goToCheckout()">Checkout</button>
         </div>
     </div>
 </div>

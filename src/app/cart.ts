@@ -6,4 +6,19 @@ export interface CartItem {
     price: number,
 };
 
+export interface CustomerInfo {
+    name: string,
+    lastName: string,
+    email: string,
+    phone: string,
+    address: string,
+    service: string
+}
+
+export interface Purchase {
+    info: CustomerInfo,
+    product: CartItem[],
+    total: number
+}
+
 export const cart: CartItem[] = [];

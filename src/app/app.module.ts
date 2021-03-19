@@ -10,6 +10,7 @@ import { CardComponent } from './book-card/book-card.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { CartCheckoutComponent } from './cart-checkout/cart-checkout.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -18,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { BooksEffects } from './effects/books.effects';
 import { CartEffects } from './effects/cart.effects';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,11 +30,13 @@ import { CartEffects } from './effects/cart.effects';
     CardComponent,
     CartComponent,
     CartItemComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CartCheckoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     }),

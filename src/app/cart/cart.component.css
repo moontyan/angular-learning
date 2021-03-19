@@ -37,6 +37,10 @@ h2 {
     outline: none;
 }
 
+.checkout-btn button:disabled {
+    background-color: #c4c4c4;
+}
+
 .cart-to-pay {
     display: flex;
     justify-content: center;
