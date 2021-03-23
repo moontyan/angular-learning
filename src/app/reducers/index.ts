@@ -10,8 +10,8 @@ import { cartReducer, CartState, CART_KEY } from './cart.reducer';
 import { environment } from '../../environments/environment';
 
 export interface State {
-  [BOOKS_KEY]: BooksState,
-  [CART_KEY]: CartState
+  books: BooksState,
+  cart: CartState
 }
 
 export const reducers: ActionReducerMap<State> = {

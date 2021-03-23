@@ -9,7 +9,7 @@ export interface BooksState {
     book: Book | null | undefined
 };
 
-const initialState: BooksState = {
+export const initialState: BooksState = {
     booksArr: [],
     book: null
 };

@@ -60,4 +60,30 @@
     border: none;
     cursor: pointer;
     outline: none;
+    transition: transform 200ms ease-in-out;
+}
+
+.delete-btn button:hover {
+    transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-info * {
+        margin: 1rem;
+    }
+
+    .item-info {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .item-header {
+        margin-top: 1rem;
+    }
 }

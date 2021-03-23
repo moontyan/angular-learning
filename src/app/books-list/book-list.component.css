@@ -2,7 +2,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+
+.book-list-bars {
+    display: flex;
+    flex-direction: column;
 }
 
 .headline {
@@ -14,6 +19,86 @@
 
 .headline p {
     margin-left: 1rem;
-    color: #95a0a6;
+    color: var(--title-gray);
     font-size: 1.25rem;
+}
+
+.list-style *{
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+
+.sort-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.sort-block {
+    display: flex;
+}
+
+.sort-link {
+    font-size: .9rem;
+    margin: 0 .5rem;
+    color: var(--title-gray);
+    cursor: pointer;
+}
+
+.sort-block a:hover {
+    color: var(--secondary-color);
+}
+
+.active-link {
+    color: var(--secondary-color);
+    font-size: .9rem;
+    font-weight: 500;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+
+.active-view {
+    color: var(--secondary-color);
+}
+
+.view-icon {
+    color: var(--title-gray);
+}
+
+@media screen and (max-width: 768px) {
+    .book-list {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        margin: 1rem;
+    }
+
+    .book-list-bars {
+        margin: 1rem;
+    }
+
+    .sort-list {
+        margin: 1rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .book-list {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .sort-block {
+        flex-direction: column;
+    }
+
+    .sort-link {
+        margin: .5rem;
+    }
+
+    .active-link {
+        margin: .5rem;
+    }
 }

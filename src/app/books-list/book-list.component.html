@@ -2,6 +2,17 @@
     <h2>Books on the shelf</h2>
     <p>{{(books$ | async)?.length}}</p>
 </div>
-<div class="book-list">
-    <app-book-card *ngFor="let book of books$ | async" [book]="book"></app-book-card>
+<div class="sort-list">
+    <div class="sort-block">
+        <a [ngClass]="(activeSort === 'byName')? 'active-link' : 'sort-link'" (click)="sortHandler('byName')">By name</a>
+        <a [ngClass]="(activeSort === 'byHighestPrice')? 'active-link' : 'sort-link'" (click)="sortHandler('byHighestPrice')">Highest first</a>
+        <a [ngClass]="(activeSort === 'byLowestPrice')? 'active-link' : 'sort-link'" (click)="sortHandler('byLowestPrice')">Lowest first</a>
+    </div>
+    <div class="list-style">
+            <fa-icon [ngClass]="(productView === 'grid')? 'active-view': 'view-icon'" [icon]="gridViewIcon" size="sm" (click)="changeView('grid')"></fa-icon>
+            <fa-icon [ngClass]="(productView === 'list')? 'active-view': 'view-icon'" [icon]="listViewIcon" size="sm" (click)="changeView('list')"></fa-icon>
+    </div>
+</div>
+<div [ngClass]="setStyle()">
+    <app-book-card *ngFor="let book of books$ | async" [book]="book" [view]="productView"></app-book-card>
 </div>

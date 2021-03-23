@@ -10,7 +10,8 @@ import { loadBooks, getBooks, loadBookById, getBookById } from '../actions/book.
 export class BooksEffects {
     loadBook$ = createEffect(() => this.actions$.pipe(
         ofType(loadBooks),
-        map(() => getBooks({ books: this.BookService.getBooks() })),
+        map(action => { 
+            return getBooks({ books: this.BookService.getBooks(action.sort) })}),
         catchError(() => EMPTY)
         )
     );

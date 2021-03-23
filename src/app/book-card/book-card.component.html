@@ -4,7 +4,7 @@
             <div class="img-container">
                 <img [src]="book.imgUrl || imageSrc">
             </div>
-            <div class="info-container">
+            <div [ngClass]="setStyle()">
                 <h3>{{book.title}}</h3>
                 <p>{{book.author}}</p>
                 <div class="genre-block">

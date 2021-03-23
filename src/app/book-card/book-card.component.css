@@ -15,9 +15,10 @@ a {
 }
 
 .card-wrapper:hover {
-    box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.10);
+    box-shadow: 0px 4px 15px 1px rgba(0,0,0,0.20);
     cursor: pointer;
     transition: 200ms ease-in-out;
+    transform: scale(1.05, 1.05);
 }
 
 .img-container {
@@ -32,6 +33,12 @@ a {
 
 .info-container {
     width: 100%;
+}
+
+.info-container-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .info-container p {
@@ -61,4 +68,9 @@ a {
     cursor: pointer;
     color: #fff;
     outline: none;
+    transition: 200ms ease-in-out;
+}
+
+.purchase-btn:hover {
+    background-color: #7ca061;
 }

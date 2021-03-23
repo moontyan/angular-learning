@@ -11,6 +11,7 @@ import { addToCart } from '../actions/cart.actions';
 
 export class CardComponent implements OnInit {
     @Input() book: Book;
+    @Input() view: string;
     imageSrc = 'assets/missing.jpg'
 
     buyBook(): void{
@@ -29,5 +30,9 @@ export class CardComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+
+    setStyle() {
+        return this.view === 'grid' ? 'info-container' : 'info-container-list'
     }
 }
