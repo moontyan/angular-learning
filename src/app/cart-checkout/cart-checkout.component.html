@@ -5,13 +5,28 @@
             <div>1</div>
             <p>Personal info</p>
         </div>
-        <input id="name" formControlName="name" placeholder="Name" autocomplete="off">
+        <div class="dng-alert" *ngIf="name?.errors?.required && name?.touched">
+            Name is required.
+        </div>
+        <input id="name" formControlName="name" placeholder="Name" autocomplete="off" required>
+        <div class="dng-alert" *ngIf="lastName?.errors?.required && lastName?.touched">
+            Last Name is required.
+        </div>
         <input id="lastName" formControlName="lastName" placeholder="Last Name" autocomplete="off">
+        <div class="dng-alert" *ngIf="email?.invalid && email?.touched">
+            Enter valid email.
+        </div>
         <input id="email" type="email" formControlName="email" placeholder="Email" autocomplete="off">
+        <div class="dng-alert" *ngIf="phone?.invalid && phone?.touched">
+            Enter valid phone number.
+        </div>
         <input id="phone" type="tel" formControlName="phone" placeholder="+380 XX XXX XX XX" autocomplete="off">
         <div class="form-title">
             <div>2</div>
             <p>Delivery</p>
+        </div>
+        <div class="dng-alert" *ngIf="service?.errors?.required && service?.touched">
+            Select your delivery service.
         </div>
         <select formControlName="service">
             <option value="" disabled selected>Select delivery service</option>
@@ -20,8 +35,11 @@
             <option>Justin</option>
             <option>Meest Express</option>
         </select>
+        <div class="dng-alert" *ngIf="address?.errors?.required && address?.touched">
+            Enter your address
+        </div>
         <input id="address" formControlName="address" placeholder="Address" autocomplete="off">
-        <button class="checkout-btn" type="submit">Purchase</button>
+        <button [disabled]="checkoutForm.invalid" class="checkout-btn" type="submit">Purchase</button>
     </form>
 </div>
 <div class="success-block" *ngIf="purchaseSuccess">

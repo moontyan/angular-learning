@@ -15,6 +15,7 @@
 .form-title div {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 30px;
     width: 30px;
     background-color: var(--secondary-color);
@@ -124,4 +125,10 @@
     cursor: pointer;
     color: #fff;
     outline: none;
+}
+
+.dng-alert {
+    font-size: .8rem;
+    color: var(--error-color);
+    margin-left: 1rem;
 }
